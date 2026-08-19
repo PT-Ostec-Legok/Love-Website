@@ -1891,55 +1891,13 @@
                 </div>
 
 
-                <!-- =========================================
-                     TOMBOL SHARE
-                ========================================== -->
-
                 <button
                     class="btn"
-                    onclick="sharePhotoWhatsApp()">
+                    onclick="sendAnswerWhatsApp()">
 
-                    📸 Kirim Foto + WhatsApp
-
-                </button>
-
-
-                <br>
-                <br>
-
-
-                <button
-                    class="btn secondary"
-                    onclick="openWhatsAppOnly()">
-
-                    💬 Buka WhatsApp
+                    💬 Kirim Jawaban ke WhatsApp
 
                 </button>
-
-
-                <br>
-                <br>
-
-
-                <button
-                    class="btn secondary"
-                    onclick="restart()">
-
-                    🔄 Mulai Lagi
-
-                </button>
-
-
-                <div class="share-info">
-
-                    📱 <strong>Cara mengirim:</strong><br>
-
-                    Setelah menekan tombol
-                    <b>Kirim Foto + WhatsApp</b>,
-                    pilih WhatsApp lalu pilih nomor
-                    <b>+62 851-7522-6955</b>.
-
-                </div>
 
             </div>
 
@@ -2103,6 +2061,8 @@
 
             photo: "",
 
+            answer: "",
+
             attempts: 0
 
         };
@@ -2140,6 +2100,11 @@
 
                 data.photo =
                     oldData.photo ||
+                    "";
+
+
+                data.answer =
+                    oldData.answer ||
                     "";
 
 
@@ -2585,6 +2550,9 @@ Aku suka kamu, ${data.name}. ❤️`;
                 type === "yes"
             ) {
 
+                data.answer =
+                    "Aku mau jadi pacar kamu ❤️";
+
                 success(
 
                     "YEAYYYY! ❤️",
@@ -2599,6 +2567,9 @@ Aku suka kamu, ${data.name}. ❤️`;
             else if (
                 type === "shy"
             ) {
+
+                data.answer =
+                    "Aku mau jadi pacar kamu, tapi masih malu 🥰";
 
                 success(
 
@@ -3257,19 +3228,11 @@ Aku suka kamu, ${data.name}. ❤️`;
 
             return (
 
-                `❤️ PESAN SPESIAL ❤️
+                `Hai, aku ${data.name} ❤️
 
-Hai ${data.name} 🥰
+${data.answer}
 
-Ada seseorang yang ingin menyampaikan sesuatu kepadamu...
-
-Aku suka kamu. ❤️
-
-Terima kasih sudah meluangkan waktu untuk membuka pesan ini.
-
-Semoga kamu tersenyum setelah membacanya. 🥰❤️
-
-💌`
+Aku mengirim jawaban ini lewat halaman spesial kita. 🥰`
 
             );
 
@@ -3505,6 +3468,45 @@ Semoga kamu tersenyum setelah membacanya. 🥰❤️
             window.open(
                 url,
                 "_blank"
+            );
+
+        }
+
+
+        /* =====================================================
+           KIRIM JAWABAN
+        ===================================================== */
+
+        function sendAnswerWhatsApp() {
+
+            const message =
+                createWhatsAppMessage();
+
+
+            const url =
+
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
+
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+
+            localStorage.removeItem(
+                "loveWebsiteData"
+            );
+
+
+            setTimeout(
+                () => location.reload(),
+                300
             );
 
         }
