@@ -2034,15 +2034,12 @@
 
     <audio
         id="music"
-        loop>
-
-        <!--
-        Jika ingin musik:
+        loop
+        autoplay>
 
         <source
-            src="music/lagu.mp3"
+            src="Virgoun%20-%20Surat%20Cinta%20Untuk%20Starla%20Official%20Lyric%20Visualizer.mp3"
             type="audio/mpeg">
-        -->
 
     </audio>
 
@@ -3115,6 +3112,57 @@ Aku suka kamu, ${data.name}. ❤️`;
 
         let musicPlaying =
             false;
+
+
+        function startMusic() {
+
+            const music =
+                document.getElementById(
+                    "music"
+                );
+
+
+            music.play()
+                .then(() => {
+
+                    musicPlaying =
+                        true;
+
+
+                    document.getElementById(
+                        "musicButton"
+                    ).textContent =
+                        "🎵";
+
+                })
+                .catch(() => {
+
+                    // Browser akan mengizinkan pemutaran setelah interaksi pertama.
+
+                });
+
+        }
+
+
+        startMusic();
+
+
+        [
+            "click",
+            "touchstart",
+            "keydown"
+        ].forEach(eventName => {
+
+            document.addEventListener(
+                eventName,
+                startMusic,
+                {
+                    once: true,
+                    passive: true
+                }
+            );
+
+        });
 
 
         function toggleMusic() {
