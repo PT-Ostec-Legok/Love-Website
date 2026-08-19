@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Something Special ❤️</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#ff3d71;
+    --secondary:#ff7eb3;
+    --accent:#ffd166;
+    --text:#ffffff;
+    --glass:rgba(255,255,255,.14);
+    --glass-border:rgba(255,255,255,.25);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,255,255,.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transition:
+        background 1s ease;
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+body.theme-purple{
+    --primary:#7f5af0;
+    --secondary:#a855f7;
+    --accent:#f0abfc;
+}
+
+body.theme-sakura{
+    --primary:#ff8fab;
+    --secondary:#ffc2d1;
+    --accent:#fff0f3;
+}
+
+body.theme-night{
+    --primary:#111827;
+    --secondary:#312e81;
+    --accent:#c4b5fd;
+}
+
+body.theme-ocean{
+    --primary:#0077b6;
+    --secondary:#48cae4;
+    --accent:#caf0f8;
+}
+
+body.theme-dark{
+    --primary:#09090b;
+    --secondary:#3f0d20;
+    --accent:#ff4d8d;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+#background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+
+    animation:
+        floatHeart linear forwards;
+
+    opacity:.7;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(.6);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.5);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particle{
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.4;
+
+    animation:
+        particleMove 8s linear infinite;
+}
+
+@keyframes particleMove{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.5;
+    }
+
+    80%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+#app{
+    position:relative;
+    z-index:5;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px 15px;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+    width:min(100%,650px);
+
+    display:none;
+
+    animation:
+        pageIn .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(30px)
+            scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
+
+.card{
+
+    padding:40px;
+
+    border-radius:32px;
+
+    background:var(--glass);
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.25);
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    width:95px;
+    height:95px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.2);
+
+    font-size:50px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.2);
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1{
+    font-size:
+        clamp(32px,7vw,55px);
+
+    line-height:1.1;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.2);
+}
+
+h2{
+    font-size:
+        clamp(25px,5vw,35px);
+
+    margin-bottom:15px;
+}
+
+.subtitle{
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    opacity:.9;
+
+    margin-bottom:30px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn{
+
+    border:none;
+
+    padding:
+        14px 25px;
+
+    min-width:140px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.18);
+
+    transition:
+        .25s ease;
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+}
+
+.btn:active{
+
+    transform:
+        scale(.95);
+}
+
+.btn.secondary{
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input{
+
+    width:100%;
+
+    padding:16px 20px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.2s;
+}
+
+.input::placeholder{
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+.input:focus{
+
+    background:
+        rgba(255,255,255,.22);
+
+    border-color:
+        rgba(255,255,255,.5);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin:25px 0;
+}
+
+.option{
+
+    padding:20px 15px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    transition:.25s ease;
+}
+
+.option:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.22);
+}
+
+.option.selected{
+
+    background:
+        rgba(255,255,255,.3);
+
+    border:
+        2px solid white;
+
+    transform:
+        scale(1.03);
+}
+
+.option-icon{
+
+    font-size:35px;
+
+    margin-bottom:8px;
+}
+
+.option-title{
+
+    font-weight:700;
+
+    font-size:15px;
+}
+
+.option-desc{
+
+    font-size:12px;
+
+    opacity:.7;
+
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-upload{
+
+    width:160px;
+    height:160px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius:25px;
+
+    border:
+        2px dashed
+        rgba(255,255,255,.5);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+.photo-upload img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+}
+
+.photo-placeholder{
+
+    font-size:40px;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-container{
+
+    perspective:1000px;
+
+    margin:
+        30px auto;
+
+    cursor:pointer;
+}
+
+.envelope{
+
+    position:relative;
+
+    width:280px;
+    height:190px;
+
+    margin:auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f7e,
+            #ff8fab
+        );
+
+    border-radius:
+        10px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+    transition:
+        transform .6s;
+}
+
+.envelope.open{
+
+    transform:
+        rotateX(10deg)
+        translateY(10px);
+}
+
+.envelope:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0
+        );
+
+    background:
+        rgba(255,255,255,.25);
+}
+
+.envelope-text{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:45px;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter{
+
+    display:none;
+
+    padding:30px;
+
+    margin-top:25px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    color:#333;
+
+    text-align:left;
+
+    line-height:1.8;
+
+    animation:
+        letterOpen .8s ease;
+}
+
+.letter.show{
+
+    display:block;
+}
+
+@keyframes letterOpen{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   QUESTION OPTIONS
+========================================================= */
+
+.answer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.answer{
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.14);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    transition:.25s;
+}
+
+.answer:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.success-icon{
+
+    font-size:80px;
+
+    animation:
+        successBounce 1s infinite alternate;
+}
+
+@keyframes successBounce{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+    }
+}
+
+.success-title{
+
+    font-size:
+        clamp(35px,8vw,60px);
+
+    font-weight:900;
+
+    margin:
+        15px 0;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   POLAROID
+========================================================= */
+
+.polaroid{
+
+    width:220px;
+
+    margin:25px auto;
+
+    padding:10px 10px 25px;
+
+    background:white;
+
+    transform:
+        rotate(-3deg);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.3);
+}
+
+.polaroid img{
+
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+}
+
+.polaroid p{
+
+    color:#333;
+
+    margin-top:10px;
+
+    font-family:
+        cursive;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    height:4px;
+
+    width:0%;
+
+    background:
+        white;
+
+    z-index:999;
+
+    transition:
+        width .5s ease;
+}
+
+
+/* =========================================================
+   TOP CONTROLS
+========================================================= */
+
+.top-controls{
+
+    position:fixed;
+
+    top:15px;
+    right:15px;
+
+    z-index:100;
+
+    display:flex;
+
+    gap:8px;
+}
+
+.control{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    background:
+        rgba(255,255,255,.15);
+
+    color:white;
+
+    cursor:pointer;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti{
+
+    position:fixed;
+
+    top:-20px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+
+    to{
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:20px 0;
+}
+
+.time-box{
+
+    min-width:65px;
+
+    padding:12px 8px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+.time-number{
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+.time-label{
+
+    font-size:10px;
+
+    opacity:.7;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:30px;
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
+    padding:
+        13px 20px;
+
+    border-radius:50px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(10px);
+
+    z-index:9999;
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .card{
+
+        padding:28px 20px;
+
+        border-radius:25px;
+    }
+
+    .options,
+    .answer-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+        height:120px;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .envelope{
+
+        width:240px;
+        height:165px;
+    }
+
+    h1{
+
+        font-size:34px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- BACKGROUND -->
+<div id="background"></div>
+
+<!-- PROGRESS -->
+<div class="progress" id="progress"></div>
+
+<!-- TOP CONTROLS -->
+<div class="top-controls">
+
+    <button
+        class="control"
+        onclick="toggleMusic()"
+        id="musicButton">
+        🔇
+    </button>
+
+    <button
+        class="control"
+        onclick="toggleFullscreen()">
+        ⛶
+    </button>
+
+</div>
+
+
+<div id="app">
+
+
+<!-- ======================================================
+     PAGE 1
+======================================================= -->
+
+<section
+    class="page active"
+    id="page1">
+
+    <div class="card">
+
+        <div class="logo">
+            💌
+        </div>
+
+        <h1>
+            Something Special
+        </h1>
+
+        <p class="subtitle">
+            Ada sesuatu yang ingin aku sampaikan
+            kepadamu... ❤️
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage(2)">
+
+            Buka Pesannya 💕
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 2
+======================================================= -->
+
+<section
+    class="page"
+    id="page2">
+
+    <div class="card">
+
+        <h2>
+            Untuk siapa pesan ini? 💕
+        </h2>
+
+        <p class="subtitle">
+            Isi nama kalian terlebih dahulu.
+        </p>
+
+        <input
+            class="input"
+            id="yourName"
+            placeholder="Nama kamu ❤️">
+
+        <input
+            class="input"
+            id="herName"
+            placeholder="Nama dia 🥰">
+
+        <button
+            class="btn"
+            onclick="saveNames()">
+
+            Lanjut ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 3
+======================================================= -->
+
+<section
+    class="page"
+    id="page3">
+
+    <div class="card">
+
+        <h2>
+            Pilih suasananya 🎨
+        </h2>
+
+        <p class="subtitle">
+            Pilih tema yang paling cocok.
+        </p>
+
+        <div class="options">
+
+            <div
+                class="option selected"
+                onclick="selectTheme(this,'')">
+
+                <div class="option-icon">
+                    ❤️
+                </div>
+
+                <div class="option-title">
+                    Romantic
+                </div>
+
+                <div class="option-desc">
+                    Manis & hangat
+                </div>
+
+            </div>
+
+
+            <div
+                class="option"
+                onclick="selectTheme(this,'theme-purple')">
+
+                <div class="option-icon">
+                    💜
+                </div>
+
+                <div class="option-title">
+                    Purple Dream
+                </div>
+
+                <div class="option-desc">
+                    Elegan & dreamy
+                </div>
+
+            </div>
+
+
+            <div
+                class="option"
+                onclick="selectTheme(this,'theme-sakura')">
+
+                <div class="option-icon">
+                    🌸
+                </div>
+
+                <div class="option-title">
+                    Sakura
+                </div>
+
+                <div class="option-desc">
+                    Cute & lembut
+                </div>
+
+            </div>
+
+
+            <div
+                class="option"
+                onclick="selectTheme(this,'theme-night')">
+
+                <div class="option-icon">
+                    🌙
+                </div>
+
+                <div class="option-title">
+                    Night Love
+                </div>
+
+                <div class="option-desc">
+                    Misterius & romantis
+                </div>
+
+            </div>
+
+
+            <div
+                class="option"
+                onclick="selectTheme(this,'theme-ocean')">
+
+                <div class="option-icon">
+                    🌊
+                </div>
+
+                <div class="option-title">
+                    Ocean
+                </div>
+
+                <div class="option-desc">
+                    Tenang & fresh
+                </div>
+
+            </div>
+
+
+            <div
+                class="option"
+                onclick="selectTheme(this,'theme-dark')">
+
+                <div class="option-icon">
+                    🖤
+                </div>
+
+                <div class="option-title">
+                    Dark Romance
+                </div>
+
+                <div class="option-desc">
+                    Deep & classy
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="nextPage(4)">
+
+            Pilih Tema ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 4
+======================================================= -->
+
+<section
+    class="page"
+    id="page4">
+
+    <div class="card">
+
+        <h2>
+            Tambahkan kenangan 📸
+        </h2>
+
+        <p class="subtitle">
+            Upload foto untuk membuat halaman ini
+            lebih personal.
+        </p>
+
+        <label
+            class="photo-upload">
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                hidden
+                onchange="previewPhoto(event)">
+
+            <div
+                class="photo-placeholder"
+                id="photoPlaceholder">
+
+                📸
+            </div>
+
+            <img
+                id="photoPreview">
+        </label>
+
+        <p style="font-size:13px;opacity:.7;margin-bottom:20px">
+            Klik kotak di atas untuk memilih foto
+        </p>
+
+        <button
+            class="btn"
+            onclick="nextPage(5)">
+
+            Lanjut 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 5
+======================================================= -->
+
+<section
+    class="page"
+    id="page5">
+
+    <div class="card">
+
+        <h2>
+            Ada surat untukmu 💌
+        </h2>
+
+        <p class="subtitle">
+            Klik amplopnya untuk membukanya.
+        </p>
+
+        <div
+            class="envelope-container"
+            onclick="openLetter()">
+
+            <div
+                class="envelope"
+                id="envelope">
+
+                <div class="envelope-text">
+                    💌
+                </div>
+
+            </div>
+
+        </div>
+
+        <div
+            class="letter"
+            id="letter">
+
+            <strong>
+                Untuk <span id="letterName"></span> ❤️
+            </strong>
+
+            <br><br>
+
+            <span id="letterText"></span>
+
+            <br><br>
+
+            Dengan penuh rasa,
+            <br>
+
+            <strong id="letterFrom"></strong>
+            ❤️
+
+        </div>
+
+        <br>
+
+        <button
+            class="btn"
+            id="letterNext"
+            style="display:none"
+            onclick="nextPage(6)">
+
+            Lanjut 🥰
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 6
+======================================================= -->
+
+<section
+    class="page"
+    id="page6">
+
+    <div class="card">
+
+        <div class="logo">
+            🥰
+        </div>
+
+        <h2>
+            <span id="questionName"></span>...
+        </h2>
+
+        <p
+            class="subtitle"
+            id="questionText">
+
+            Aku mau bertanya sesuatu.
+        </p>
+
+        <div class="answer-grid">
+
+            <button
+                class="answer"
+                onclick="answer('yes')">
+
+                ❤️ Aku juga suka kamu
+            </button>
+
+            <button
+                class="answer"
+                onclick="answer('shy')">
+
+                🥰 Mau, tapi malu
+            </button>
+
+            <button
+                class="answer"
+                onclick="answer('think')">
+
+                😳 Kasih aku waktu
+            </button>
+
+            <button
+                class="answer"
+                onclick="answer('maybe')">
+
+                🤔 Aku pikir-pikir dulu
+            </button>
+
+            <button
+                class="answer"
+                id="noButton"
+                onmouseover="runAway()"
+                onclick="runAway()">
+
+                😝 Gak
+            </button>
+
+        </div>
+
+        <p
+            id="attemptText"
+            style="
+                margin-top:20px;
+                font-size:12px;
+                opacity:.6;
+            ">
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 7 SUCCESS
+======================================================= -->
+
+<section
+    class="page"
+    id="page7">
+
+    <div class="card">
+
+        <div class="success-icon">
+            💖
+        </div>
+
+        <div
+            class="success-title"
+            id="successTitle">
+
+            YEAYYYY!
+        </div>
+
+        <p
+            class="subtitle"
+            id="successText">
+
+        </p>
+
+        <div
+            class="polaroid"
+            id="polaroid"
+            style="display:none">
+
+            <img id="successPhoto">
+
+            <p>
+                Kita ❤️
+            </p>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="shareWhatsApp()">
+
+            📲 Kirim ke WhatsApp
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn secondary"
+            onclick="restart()">
+
+            🔄 Mulai Lagi
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 8 WAIT
+======================================================= -->
+
+<section
+    class="page"
+    id="page8">
+
+    <div class="card">
+
+        <div class="logo">
+            ⏳
+        </div>
+
+        <h2>
+            Tidak apa-apa ❤️
+        </h2>
+
+        <p
+            class="subtitle"
+            id="waitText">
+
+        </p>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <div
+                    class="time-number"
+                    id="days">
+                    00
+                </div>
+
+                <div class="time-label">
+                    HARI
+                </div>
+            </div>
+
+            <div class="time-box">
+                <div
+                    class="time-number"
+                    id="hours">
+                    00
+                </div>
+
+                <div class="time-label">
+                    JAM
+                </div>
+            </div>
+
+            <div class="time-box">
+                <div
+                    class="time-number"
+                    id="minutes">
+                    00
+                </div>
+
+                <div class="time-label">
+                    MENIT
+                </div>
+            </div>
+
+            <div class="time-box">
+                <div
+                    class="time-number"
+                    id="seconds">
+                    00
+                </div>
+
+                <div class="time-label">
+                    DETIK
+                </div>
+            </div>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="nextPage(6)">
+
+            Aku Sudah Siap ❤️
+        </button>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- OPTIONAL MUSIC -->
+<audio
+    id="music"
+    loop>
+
+    <!--
+        Ganti URL ini dengan file musik
+        milik kamu jika ingin digunakan.
+
+        Contoh:
+        music/lagu.mp3
+    -->
+
+</audio>
+
+
+<script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let data = {
+
+    yourName:"",
+    herName:"",
+    theme:"",
+    photo:"",
+    attempts:0
+
+};
+
+
+/* =========================================================
+   LOAD DATA
+========================================================= */
+
+const saved =
+    localStorage.getItem(
+        "loveWebsiteData"
+    );
+
+if(saved){
+
+    try{
+
+        data =
+            JSON.parse(saved);
+
+    }catch(e){}
+
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function saveData(){
+
+    localStorage.setItem(
+        "loveWebsiteData",
+        JSON.stringify(data)
+    );
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function nextPage(number){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page =>
+            page.classList.remove("active")
+        );
+
+    const target =
+        document.getElementById(
+            "page" + number
+        );
+
+    if(target){
+
+        target.classList.add("active");
+
+        updateProgress(number);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress(page){
+
+    const percentage =
+        ((page - 1) / 6) * 100;
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+        percentage + "%";
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+function saveNames(){
+
+    const yourName =
+        document.getElementById(
+            "yourName"
+        ).value.trim();
+
+    const herName =
+        document.getElementById(
+            "herName"
+        ).value.trim();
+
+    if(!yourName || !herName){
+
+        showToast(
+            "Isi nama kalian dulu ya ❤️"
+        );
+
+        return;
+    }
+
+    data.yourName =
+        yourName;
+
+    data.herName =
+        herName;
+
+    saveData();
+
+    nextPage(3);
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function selectTheme(
+    element,
+    theme
+){
+
+    document
+        .querySelectorAll(
+            ".option"
+        )
+        .forEach(
+            item =>
+                item.classList.remove(
+                    "selected"
+                )
+        );
+
+    element.classList.add(
+        "selected"
+    );
+
+    document.body.className =
+        theme;
+
+    data.theme =
+        theme;
+
+    saveData();
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+function previewPhoto(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file)
+        return;
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+        function(e){
+
+            data.photo =
+                e.target.result;
+
+            document.getElementById(
+                "photoPreview"
+            ).src =
+                e.target.result;
+
+            document.getElementById(
+                "photoPreview"
+            ).style.display =
+                "block";
+
+            document.getElementById(
+                "photoPlaceholder"
+            ).style.display =
+                "none";
+
+            saveData();
+        };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+function openLetter(){
+
+    const envelope =
+        document.getElementById(
+            "envelope"
+        );
+
+    const letter =
+        document.getElementById(
+            "letter"
+        );
+
+    const next =
+        document.getElementById(
+            "letterNext"
+        );
+
+    envelope.classList.add(
+        "open"
+    );
+
+    letter.classList.add(
+        "show"
+    );
+
+    next.style.display =
+        "inline-block";
+
+    document.getElementById(
+        "letterName"
+    ).textContent =
+        data.herName;
+
+    document.getElementById(
+        "letterFrom"
+    ).textContent =
+        data.yourName;
+
+    typeLetter();
+}
+
+
+/* =========================================================
+   LETTER TYPING
+========================================================= */
+
+function typeLetter(){
+
+    const text =
+        `Sebenarnya aku sudah cukup lama ingin mengatakan ini.
+
+Aku mungkin tidak selalu pandai mengungkapkan perasaan, tapi ada satu hal yang selalu membuatku senang...
+
+yaitu ketika ada kamu.
+
+Aku suka caramu tersenyum, caramu berbicara, dan hal-hal kecil tentangmu yang mungkin tidak kamu sadari.
+
+Aku tidak tahu apa jawabanmu nanti.
+
+Tapi setidaknya hari ini aku ingin jujur.
+
+Aku suka kamu, ${data.herName}. ❤️`;
+
+    const element =
+        document.getElementById(
+            "letterText"
+        );
+
+    element.textContent="";
+
+    let i=0;
+
+    function type(){
+
+        if(i < text.length){
+
+            element.textContent +=
+                text.charAt(i);
+
+            i++;
+
+            setTimeout(
+                type,
+                25
+            );
+        }
+    }
+
+    type();
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+function setupQuestion(){
+
+    document.getElementById(
+        "questionName"
+    ).textContent =
+        data.herName;
+
+    document.getElementById(
+        "questionText"
+    ).innerHTML =
+        `${data.herName}, mau nggak jadi seseorang yang spesial buat ${data.yourName}? ❤️`;
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+function answer(type){
+
+    if(type === "yes"){
+
+        success(
+            "YEAYYYY! ❤️",
+            `Akhirnya ${data.herName} bilang iya! 🥹❤️`
+        );
+
+    }
+
+    else if(type === "shy"){
+
+        success(
+            "HEHEHE 😳❤️",
+            `Malu boleh... tapi berarti kamu mau kan, ${data.herName}? 🥰`
+        );
+
+    }
+
+    else if(type === "think"){
+
+        data.attempts++;
+
+        document.getElementById(
+            "waitText"
+        ).innerHTML =
+            `Aku akan menunggu jawabanmu, ${data.herName}. ❤️<br><br>
+            Tidak perlu terburu-buru. Yang penting jujur.`;
+
+        nextPage(8);
+    }
+
+    else if(type === "maybe"){
+
+        showToast(
+            "Hmm... berarti masih ada harapan 😏❤️"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   NO BUTTON
+========================================================= */
+
+function runAway(){
+
+    const button =
+        document.getElementById(
+            "noButton"
+        );
+
+    data.attempts++;
+
+    const messages = [
+
+        "Yakin? 😏",
+
+        "Coba pikir lagi 🥺",
+
+        "Jangan dong 😭",
+
+        "Aku tahu kamu mau ❤️",
+
+        "Tombol ini rusak 🤣",
+
+        "Gak boleh pilih ini 😝",
+
+        "Pleaseee 🥹",
+
+        "Mau aja ya ❤️",
+
+        "Aku tunggu 😭"
+
+    ];
+
+    const index =
+        Math.min(
+            data.attempts - 1,
+            messages.length - 1
+        );
+
+    button.textContent =
+        messages[index];
+
+    button.style.position =
+        "fixed";
+
+    const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        20;
+
+    const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        20;
+
+    const x =
+        Math.max(
+            10,
+            Math.random() * maxX
+        );
+
+    const y =
+        Math.max(
+            10,
+            Math.random() * maxY
+        );
+
+    button.style.left =
+        x + "px";
+
+    button.style.top =
+        y + "px";
+
+    document.getElementById(
+        "attemptText"
+    ).textContent =
+        `Tombol "Gak" sudah kabur ${data.attempts} kali 😂`;
+
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+function success(
+    title,
+    message
+){
+
+    document.getElementById(
+        "successTitle"
+    ).textContent =
+        title;
+
+    document.getElementById(
+        "successText"
+    ).innerHTML =
+        message;
+
+    if(data.photo){
+
+        document.getElementById(
+            "polaroid"
+        ).style.display =
+            "block";
+
+        document.getElementById(
+            "successPhoto"
+        ).src =
+            data.photo;
+    }
+
+    nextPage(7);
+
+    confetti();
+
+    createHeartBurst();
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function confetti(){
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "💖",
+        "✨",
+        "🎉",
+        "🥰",
+        "💗",
+        "💘"
+    ];
+
+    for(
+        let i=0;
+        i<120;
+        i++
+    ){
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+        element.className =
+            "confetti";
+
+        element.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        element.style.left =
+            Math.random() * 100 +
+            "vw";
+
+        element.style.fontSize =
+            (10 +
+            Math.random()*20) +
+            "px";
+
+        element.style.animationDuration =
+            (2 +
+            Math.random()*4) +
+            "s";
+
+        document.body.appendChild(
+            element
+        );
+
+        setTimeout(
+            () =>
+                element.remove(),
+            6000
+        );
+    }
+}
+
+
+/* =========================================================
+   HEART BURST
+========================================================= */
+
+function createHeartBurst(){
+
+    for(
+        let i=0;
+        i<40;
+        i++
+    ){
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+        heart.textContent =
+            "❤️";
+
+        heart.style.position =
+            "fixed";
+
+        heart.style.left =
+            "50%";
+
+        heart.style.top =
+            "50%";
+
+        heart.style.zIndex =
+            "9999";
+
+        heart.style.fontSize =
+            (15 +
+            Math.random()*30) +
+            "px";
+
+        heart.style.pointerEvents =
+            "none";
+
+        const angle =
+            Math.random() *
+            Math.PI * 2;
+
+        const distance =
+            100 +
+            Math.random()*300;
+
+        const x =
+            Math.cos(angle) *
+            distance;
+
+        const y =
+            Math.sin(angle) *
+            distance;
+
+        heart.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.3)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        ) scale(1.5)`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:
+                    1000 +
+                    Math.random()*1000,
+
+                easing:
+                    "cubic-bezier(.2,.8,.2,1)"
+            }
+        );
+
+        document.body.appendChild(
+            heart
+        );
+
+        setTimeout(
+            () =>
+                heart.remove(),
+            2200
+        );
+    }
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createFloatingHeart(){
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+    heart.className =
+        "heart";
+
+    const icons = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "✨",
+        "🌸"
+    ];
+
+    heart.textContent =
+        icons[
+            Math.floor(
+                Math.random() *
+                icons.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100 +
+        "%";
+
+    heart.style.fontSize =
+        (15 +
+        Math.random()*30) +
+        "px";
+
+    heart.style.animationDuration =
+        (5 +
+        Math.random()*7) +
+        "s";
+
+    document.getElementById(
+        "background"
+    ).appendChild(
+        heart
+    );
+
+    setTimeout(
+        () =>
+            heart.remove(),
+        13000
+    );
+}
+
+setInterval(
+    createFloatingHeart,
+    500
+);
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+function createParticle(){
+
+    const particle =
+        document.createElement(
+            "div"
+        );
+
+    particle.className =
+        "particle";
+
+    particle.style.left =
+        Math.random()*100 +
+        "%";
+
+    particle.style.animationDelay =
+        Math.random()*5 +
+        "s";
+
+    document.getElementById(
+        "background"
+    ).appendChild(
+        particle
+    );
+
+    setTimeout(
+        () =>
+            particle.remove(),
+        9000
+    );
+}
+
+setInterval(
+    createParticle,
+    800
+);
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+let musicPlaying=false;
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById(
+            "music"
+        );
+
+    const button =
+        document.getElementById(
+            "musicButton"
+        );
+
+    if(!music.src){
+
+        showToast(
+            "Tambahkan file musik terlebih dahulu 🎵"
+        );
+
+        return;
+    }
+
+    if(musicPlaying){
+
+        music.pause();
+
+        button.textContent =
+            "🔇";
+
+        musicPlaying=false;
+
+    }else{
+
+        music.play();
+
+        button.textContent =
+            "🎵";
+
+        musicPlaying=true;
+    }
+}
+
+
+/* =========================================================
+   FULLSCREEN
+========================================================= */
+
+function toggleFullscreen(){
+
+    if(!document.fullscreenElement){
+
+        document.documentElement
+            .requestFullscreen()
+            .catch(()=>{});
+
+    }else{
+
+        document.exitFullscreen();
+    }
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+function shareWhatsApp(){
+
+    const message =
+        `❤️ Pesan spesial untuk ${data.herName}
+
+${data.herName}, aku punya sesuatu yang ingin aku sampaikan...
+
+Aku suka kamu. 🥰
+
+Dan akhirnya kamu memberikan jawaban yang paling aku tunggu. ❤️
+
+— ${data.yourName}`;
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            message
+        );
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        toastTimer
+    );
+
+    toastTimer =
+        setTimeout(
+            () =>
+                toast.classList.remove(
+                    "show"
+                ),
+            3000
+        );
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restart(){
+
+    localStorage.removeItem(
+        "loveWebsiteData"
+    );
+
+    location.reload();
+}
+
+
+/* =========================================================
+   LOAD PREVIOUS DATA
+========================================================= */
+
+function loadPreviousData(){
+
+    if(data.yourName){
+
+        document.getElementById(
+            "yourName"
+        ).value =
+            data.yourName;
+    }
+
+    if(data.herName){
+
+        document.getElementById(
+            "herName"
+        ).value =
+            data.herName;
+    }
+
+    if(data.theme){
+
+        document.body.className =
+            data.theme;
+    }
+
+    if(data.photo){
+
+        document.getElementById(
+            "photoPreview"
+        ).src =
+            data.photo;
+
+        document.getElementById(
+            "photoPreview"
+        ).style.display =
+            "block";
+
+        document.getElementById(
+            "photoPlaceholder"
+        ).style.display =
+            "none";
+    }
+}
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+loadPreviousData();
+
+setupQuestion();
+
+updateProgress(1);
+
+</script>
+
+</body>
+</html>
