@@ -441,6 +441,36 @@
         }
 
 
+        .romance-note {
+
+            margin: 0 auto 25px;
+
+            padding: 12px 16px;
+
+            max-width: 440px;
+
+            border: 1px solid rgba(255,255,255,.22);
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,.11);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            animation: noteGlow 3s ease-in-out infinite;
+        }
+
+
+        @keyframes noteGlow {
+
+            0%, 100% { transform: rotate(-1deg); }
+
+            50% { transform: rotate(1deg) translateY(-2px); }
+        }
+
+
         /* =====================================================
            BUTTON
         ===================================================== */
@@ -712,6 +742,44 @@
         .photo-placeholder {
 
             font-size: 40px;
+        }
+
+
+        .photo-actions {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 14px;
+        }
+
+
+        .photo-share-note {
+
+            display: none;
+
+            margin: 0 auto 20px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            opacity: .78;
+        }
+
+
+        .btn.compact {
+
+            min-width: 0;
+
+            padding: 11px 17px;
+
+            font-size: 14px;
         }
 
 
@@ -1364,6 +1432,11 @@
                 </p>
 
 
+                <div class="romance-note" id="cuteNote">
+                    Kamu bukan WiFi, tapi entah kenapa hatiku selalu otomatis tersambung. 📶❤️
+                </div>
+
+
                 <button
                     class="btn"
                     onclick="nextPage(2)">
@@ -1633,6 +1706,30 @@
                     ">
 
                     Klik kotak di atas untuk memilih foto
+
+                </p>
+
+
+                <div class="photo-actions">
+
+                    <button
+                        class="btn compact"
+                        id="sharePhotoButton"
+                        style="display:none;"
+                        onclick="sharePhotoWhatsApp()">
+
+                        📲 Kirim foto ke WhatsApp
+
+                    </button>
+
+                </div>
+
+
+                <p
+                    class="photo-share-note"
+                    id="photoShareNote">
+
+                    Foto akan dibagikan lewat menu perangkat. Pilih WhatsApp, lalu tekan kirim ya 💌
 
                 </p>
 
@@ -2374,12 +2471,31 @@
                         "none";
 
 
+                    setPhotoReadyState(true);
+
+
                     saveData();
 
                 };
 
 
             reader.readAsDataURL(file);
+
+        }
+
+
+        function setPhotoReadyState(isReady) {
+
+            document.getElementById(
+                "sharePhotoButton"
+            ).style.display =
+                isReady ? "inline-flex" : "none";
+
+
+            document.getElementById(
+                "photoShareNote"
+            ).style.display =
+                isReady ? "block" : "none";
 
         }
 
@@ -3665,6 +3781,9 @@ Aku mengirim jawaban ini lewat halaman spesial kita. 🥰`
                 ).style.display =
                     "none";
 
+
+                setPhotoReadyState(true);
+
             }
 
         }
@@ -3697,7 +3816,37 @@ Aku mengirim jawaban ini lewat halaman spesial kita. 🥰`
            INIT
         ===================================================== */
 
+        function setCuteNote() {
+
+            const notes = [
+
+                "Kamu bukan WiFi, tapi entah kenapa hatiku selalu otomatis tersambung. 📶❤️",
+
+                "Katanya cinta itu buta. Punyaku sih jelas, soalnya tetap memilih kamu. 😌💕",
+
+                "Kalau senyum kamu adalah notifikasi, aku mau menerimanya setiap hari. 😊💌",
+
+                "Peringatan: membuka pesan ini bisa menyebabkan senyum-senyum sendiri. 😳✨",
+
+                "Aku tidak butuh Google Maps, karena hatiku selalu tahu jalan menuju kamu. 🧭❤️"
+
+            ];
+
+
+            document.getElementById(
+                "cuteNote"
+            ).textContent =
+                notes[
+                    Math.floor(
+                        Math.random() * notes.length
+                    )
+                ];
+
+        }
+
         loadPreviousData();
+
+        setCuteNote();
 
         setupQuestion();
 
