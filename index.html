@@ -1992,7 +1992,7 @@
                     class="btn"
                     onclick="sendAnswerWhatsApp()">
 
-                    💬 Kirim Jawaban ke WhatsApp
+                    💬 Kirim Jawaban + Foto ke WhatsApp
 
                 </button>
 
@@ -3641,10 +3641,25 @@ Aku mengirim jawaban ini lewat halaman spesial kita. 🥰`
            KIRIM JAWABAN
         ===================================================== */
 
-        function sendAnswerWhatsApp() {
+        async function sendAnswerWhatsApp() {
 
             const message =
                 createWhatsAppMessage();
+
+
+            if (data.photo) {
+
+                await sharePhotoWhatsApp();
+
+
+                localStorage.removeItem(
+                    "loveWebsiteData"
+                );
+
+
+                return;
+
+            }
 
 
             const url =
